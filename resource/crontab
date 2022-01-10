@@ -1,0 +1,1 @@
+*/30 * * * * cd /ntuhBodyTemperature/src && python main.py >> /ntuhBodyTemperature/logfile 2>&1&

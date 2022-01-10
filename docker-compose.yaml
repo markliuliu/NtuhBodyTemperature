@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  python:
+    build: .
+    environment: &TZ
+      - TZ=Asia/Taipei
+
+  selenium-standalone:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
+    environment: *TZ
+
+

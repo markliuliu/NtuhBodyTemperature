@@ -11,6 +11,7 @@ from datetime import date, datetime, timezone
 import DriverFactory
 
 TIME_ZONE = pytz.timezone('Asia/Taipei')
+FILL_FORM_XPATH = '//*[contains(text(), "再次填寫症狀問卷")]'
 FLOOR_XPATH = '//*[@id="duty-tr"]/td[3]/span/div/div[1]/label'
 FEVER_XPATH = '//*[@id="fever-tr"]/td[3]/span/div/div[2]/label'
 SYMPTOMS_XPATH = '//*[@id="symptoms-tr"]/td[3]/span/div/div[2]/label'
@@ -24,7 +25,6 @@ def load_settings():
 
 
 def main():
-
     now = datetime.now(TIME_ZONE)  # UTC time
     print("{} - start to fill the form of body temperature".format(now.strftime("%Y-%m-%d %H:%M:%S")))
     base_url = SETTINGS["base_url"]
@@ -50,7 +50,7 @@ def already_fill_the_from(driver):
 
 
 def goes_to_the_form(driver):
-    element = driver.find_element(By.CLASS_NAME, "btn.btn-defaultrc.btn-xs")
+    element = driver.find_element(By.XPATH, FILL_FORM_XPATH)
     element.click()
 
 

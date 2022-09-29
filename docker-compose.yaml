@@ -6,7 +6,7 @@ services:
       - TZ=Asia/Taipei
 
   selenium-standalone:
-    image: selenium/standalone-chrome:latest
+    image: selenium/standalone-chrome:3.11.0
     ports:
       - "4444:4444"
     environment: *TZ
